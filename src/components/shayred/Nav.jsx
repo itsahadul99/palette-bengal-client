@@ -4,7 +4,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
 
 const Nav = () => {
-    
+
     const { user, logOut } = useContext(AuthContext)
     console.log(user);
     const links = <>
@@ -84,12 +84,12 @@ const Nav = () => {
 
     const handleLogOut = () => {
         logOut()
-        .then(() => {
-            toast.success('Successfully logged out!')
-        })
-        .catch(error => {
-            toast.error(`${error.message}`)
-        })
+            .then(() => {
+                toast.success('Successfully logged out!')
+            })
+            .catch(error => {
+                toast.error(`${error.message}`)
+            })
     }
     return (
         <div className="navbar my-3 lg:mt-6 max-w-7xl mx-auto">
@@ -120,8 +120,8 @@ const Nav = () => {
                                         <img alt="User pic" src={user?.photoURL} />
                                     </div>
                                 </div>
-                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                                    <li>{user?.displayName}</li>
+                                <ul tabIndex={0} className="mt-3 z-[1] p-5 space-y-2 font-medium shadow menu menu-sm dropdown-content rounded-box w-52 text-sm">
+                                    <li>Username: {user?.displayName}</li>
                                     <li><button onClick={handleLogOut}>Logout</button></li>
                                 </ul>
                             </div>

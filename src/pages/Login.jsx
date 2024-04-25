@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
-import { FaEye, FaEyeSlash, FaGoogle, } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGithub, FaGoogle, } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
-    const { logIn, googleLogIn, error, setError, } = useContext(AuthContext);
+    const { logIn, googleLogIn, githubLogIn, error, setError, } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false)
     const location = useLocation();
     const navigate = useNavigate();
@@ -49,6 +49,18 @@ const Login = () => {
             navigate('/register');
         })
 
+    }
+    const handleGithubLogIn = () => {
+        githubLogIn()
+        .then(() => {
+            toast.success('Successfully logged in by github !!')
+            navigate(location?.state ? location.state : '/');
+        })
+        .catch((error) => {
+            toast.error(`${error.message}
+            Please register first`)
+            navigate('/register');
+        })
     }
     return (
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl border-2 border-dotted bg-white   font-sans mx-auto my-5 lg:my-14">
@@ -104,9 +116,9 @@ const Login = () => {
                 <button onClick={handleGoogleLonIn} aria-label="Log in with Google" className="p-3 rounded-full hover:bg-gray-200">
                     <FaGoogle size={30} />
                 </button>
-                {/* <button onClick={handleGithubLogIn} aria-label="Log in with Github" className="p-3 rounded-full hover:bg-gray-200">
+                <button onClick={handleGithubLogIn} aria-label="Log in with Github" className="p-3 rounded-full hover:bg-gray-200">
                     <FaGithub size={30} />
-                </button> */}
+                </button>
             </div>
             <p className="text-sm text-center gap-2 flex justify-center sm:px-6 ">
                 Don&apos;t have an account?
