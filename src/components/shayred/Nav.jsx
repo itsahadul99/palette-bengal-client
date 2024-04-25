@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import { toast } from "react-toastify";
 
 const Nav = () => {
-
+    
+    const { user, logOut } = useContext(AuthContext)
+    console.log(user);
     const links = <>
         <li>
             <NavLink to='/' className={({ isActive }) =>
@@ -20,40 +24,47 @@ const Nav = () => {
             }>
                 All art & Craft </NavLink>
         </li>
-        <li>
-            <NavLink to='/login' className={({ isActive }) =>
-                isActive
-                    ? "text-red-400 pb-1 border-b-0 lg:border-b-2 border-red-600 font-bold"
-                    : "font-bold pb-1"
-            }>
-                Log in </NavLink>
-        </li>
-        <li>
-            <NavLink to='/register' className={({ isActive }) =>
-                isActive
-                    ? "text-red-400 pb-1 border-b-0 lg:border-b-2 border-red-600 font-bold"
-                    : "font-bold pb-1"
-            }>
-                Register </NavLink>
-        </li>
-        <li>
-            <NavLink to='/addArt&Craft' className={({ isActive }) =>
-                isActive
-                    ? "text-red-400 pb-1 border-b-0 lg:border-b-2 border-red-600 font-bold"
-                    : "font-bold"
-            }>
-                Add Craft Item </NavLink>
-        </li>
-        <li>
-            <NavLink to='/addArt&Craft' className={({ isActive }) =>
-                isActive
-                    ? "text-red-400 pb-1 border-b-0 lg:border-b-2 border-red-600 font-bold"
-                    : "font-bold"
-            }>
-                My art & Craft List </NavLink>
-        </li>
+        {
+            !user && <li>
+                <NavLink to='/login' className={({ isActive }) =>
+                    isActive
+                        ? "text-red-400 pb-1 border-b-0 lg:border-b-2 border-red-600 font-bold"
+                        : "font-bold pb-1"
+                }>
+                    Log in </NavLink>
+            </li>
+        }
+        {
+            !user && <li>
+                <NavLink to='/register' className={({ isActive }) =>
+                    isActive
+                        ? "text-red-400 pb-1 border-b-0 lg:border-b-2 border-red-600 font-bold"
+                        : "font-bold pb-1"
+                }>
+                    Register </NavLink>
+            </li>
+        }
+        {
+            user && <li>
+                <NavLink to='/addArt&Craft' className={({ isActive }) =>
+                    isActive
+                        ? "text-red-400 pb-1 border-b-0 lg:border-b-2 border-red-600 font-bold"
+                        : "font-bold"
+                }>
+                    Add Craft Item </NavLink>
+            </li>
+        }
+        {
+            user && <li>
+                <NavLink to='/addArt&Craft' className={({ isActive }) =>
+                    isActive
+                        ? "text-red-400 pb-1 border-b-0 lg:border-b-2 border-red-600 font-bold"
+                        : "font-bold"
+                }>
+                    My art & Craft List </NavLink>
+            </li>
+        }
     </>
-
     const [theme, setTheme] = useState('light')
     const handleToggle = e => {
         if (e.target.checked) {
@@ -70,6 +81,16 @@ const Nav = () => {
         // add custom data-theme attribute
         document.querySelector('html').setAttribute('data-theme', localTheme)
     }, [theme]);
+
+    const handleLogOut = () => {
+        logOut()
+        .then(() => {
+            toast.success('Successfully logged out!')
+        })
+        .catch(error => {
+            toast.error(`${error.message}`)
+        })
+    }
     return (
         <div className="navbar my-3 lg:mt-6 max-w-7xl mx-auto">
             <div className="navbar-start">
@@ -92,22 +113,24 @@ const Nav = () => {
             <div className="navbar-end">
                 <div className="flex justify-center gap-3 items-center">
                     <div className="dropdown dropdown-end">
-                        <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        {
+                            user && <div className="dropdown dropdown-end">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img alt="User pic" src={user?.photoURL} />
+                                    </div>
                                 </div>
+                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                                    <li>{user?.displayName}</li>
+                                    <li><button onClick={handleLogOut}>Logout</button></li>
+                                </ul>
                             </div>
-                            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                                <li><a>Name</a></li>
-                                <li><a>Logout</a></li>
-                            </ul>
-                        </div>
+                        }
                     </div>
                     <div>
                         <label className="swap swap-rotate">
                             {/* this hidden checkbox controls the state */}
-                            <input onClick={handleToggle} type="checkbox" className="theme-controller"  />
+                            <input onClick={handleToggle} type="checkbox" className="theme-controller" />
                             {/* sun icon */}
                             <svg className="swap-off fill-current w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" /></svg>
                             {/* moon icon */}
