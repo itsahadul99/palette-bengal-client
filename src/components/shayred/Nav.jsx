@@ -21,6 +21,22 @@ const Nav = () => {
                 All art & Craft </NavLink>
         </li>
         <li>
+            <NavLink to='/login' className={({ isActive }) =>
+                isActive
+                    ? "text-red-400 pb-1 border-b-0 lg:border-b-2 border-red-600 font-bold"
+                    : "font-bold pb-1"
+            }>
+                Log in </NavLink>
+        </li>
+        <li>
+            <NavLink to='/register' className={({ isActive }) =>
+                isActive
+                    ? "text-red-400 pb-1 border-b-0 lg:border-b-2 border-red-600 font-bold"
+                    : "font-bold pb-1"
+            }>
+                Register </NavLink>
+        </li>
+        <li>
             <NavLink to='/addArt&Craft' className={({ isActive }) =>
                 isActive
                     ? "text-red-400 pb-1 border-b-0 lg:border-b-2 border-red-600 font-bold"
@@ -66,7 +82,7 @@ const Nav = () => {
                     </ul>
                 </div>
                 <img className="w-14 rounded-lg mr-1 lg:mr-3" src="/logo.png" alt="" />
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-bold">Palette of <span className="text-[#4CCD99]">Bengal</span></h3>
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-bold">Palette of <span className="text-[#9ADE7B]">Bengal</span></h3>
             </div>
             <div data-aos="fade-up" data-aos-duration='2000' className="navbar-center hidden lg:flex">
                 <ul className="flex gap-5 items-center ">
