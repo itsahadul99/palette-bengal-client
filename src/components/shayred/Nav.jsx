@@ -17,7 +17,7 @@ const Nav = () => {
                 Home</NavLink>
         </li>
         <li>
-            <NavLink to='/allArt&Craft' className={({ isActive }) =>
+            <NavLink to='/allArtCraft' className={({ isActive }) =>
                 isActive
                     ? "text-red-400 pb-1 border-b-0 lg:border-b-2 border-red-600 font-bold"
                     : "font-bold pb-1"

@@ -16,7 +16,7 @@ const Banner = () => {
                 delay: 2000,
               }}
             modules={[Autoplay, Pagination, Navigation]}
-            className="bg-[#F4F4F4] my-5">
+            className="bg-[#F4F4F4] py-5">
             <SwiperSlide>
                 <div className="hero min-h-[calc(100vh-120px)] max-w-7xl mx-auto ">
                     <div className="flex justify-even gap-5 md:gap-8 items-center w-full">
