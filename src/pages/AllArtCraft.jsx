@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllArtCraft = () => {
     const loadedData = useLoaderData()
@@ -25,7 +25,7 @@ const AllArtCraft = () => {
                                 <p>Rating: {singleItem.rating}</p>
                             </div>
                             <div className="flex justify-center">
-                                <button className="rounded-md border bg-[#9ADE7B] font-bold px-4 py-2  duration-300 hover:bg-gray-200">View Details</button>
+                                <Link to={`/allCraft/${singleItem._id}`}><button className="rounded-md border bg-[#9ADE7B] font-bold px-4 py-2  duration-300 hover:bg-gray-200">View Details</button></Link>
                             </div>
                         </div>)
                     }

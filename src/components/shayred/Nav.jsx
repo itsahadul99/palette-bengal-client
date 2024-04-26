@@ -22,7 +22,7 @@ const Nav = () => {
                     ? "text-red-400 pb-1 border-b-0 lg:border-b-2 border-red-600 font-bold"
                     : "font-bold pb-1"
             }>
-                All art & Craft </NavLink>
+                All Art & Craft </NavLink>
         </li>
 
         <li>

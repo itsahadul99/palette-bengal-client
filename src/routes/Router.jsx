@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import AddArtCraft from "../pages/AddArtCraft";
 import MyArtCraft from "../pages/MyArtCraft";
 import AllArtCraft from "../pages/AllArtCraft";
+import ViewDetails from "../pages/ViewDetails";
 
 const router = createBrowserRouter([
     {
@@ -30,14 +31,14 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addArtCraft',
-                element: 
-                <PrivateRoute>
-                    <AddArtCraft />
-                </PrivateRoute>
+                element:
+                    <PrivateRoute>
+                        <AddArtCraft />
+                    </PrivateRoute>
             },
             {
                 path: '/myArtCraft',
-                element: <PrivateRoute> 
+                element: <PrivateRoute>
                     <MyArtCraft />
                 </PrivateRoute>
             },
@@ -45,6 +46,14 @@ const router = createBrowserRouter([
                 path: '/allArtCraft',
                 element: <AllArtCraft />,
                 loader: () => fetch('http://localhost:5000/allCraft')
+            },
+            {
+                path: '/allCraft/:id',
+                element: <PrivateRoute>
+                    <ViewDetails />
+                </PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/allCraft/${params.id}`)
+
             }
         ]
     }
