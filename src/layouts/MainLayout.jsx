@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Nav from "../components/shayred/Nav";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import Footer from "../components/shayred/Footer";
 
 const MainLayout = () => {
     const { loading } = useContext(AuthContext)
@@ -14,6 +15,7 @@ const MainLayout = () => {
         <div>
             <Nav />
             <Outlet />
+            <Footer />
         </div>
     );
 };
