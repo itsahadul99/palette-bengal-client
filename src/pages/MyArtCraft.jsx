@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyArtCraft = () => {
     const { user } = useContext(AuthContext)
@@ -65,7 +66,7 @@ const MyArtCraft = () => {
                                 <p>Rating: {singleItem.rating}</p>
                             </div>
                             <div className="flex justify-center gap-3 lg:gap-10">
-                                <button className="rounded-md border bg-[#9ADE7B] font-bold px-2 md:px-4 py-2  duration-300 hover:bg-gray-200">Update</button>
+                                <Link to={`/updateItem/${singleItem._id}`}><button className="rounded-md border bg-[#9ADE7B] font-bold px-2 md:px-4 py-2  duration-300 hover:bg-gray-200">Update</button></Link>
                                 <button onClick={() => handleDelete(singleItem._id)} className="rounded-md border bg-red-500 font-bold px-2 md:px-4 py-2  duration-300 hover:bg-gray-200">Delete</button>
                             </div>
                         </div>)
