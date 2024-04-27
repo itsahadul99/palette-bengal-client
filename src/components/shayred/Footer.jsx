@@ -5,7 +5,7 @@ const Footer = () => {
         <footer className=" divide-y border-t">
             <div className="container flex flex-col justify-between px-10 py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3 mx-auto">
-                    <h3 className="text-sm md:text-2xl lg:text-3xl font-bold">Palette<span className="text-[#9ADE7B]">Bengal</span>
+                    <h3 className="text-sm md:text-2xl lg:text-3xl font-bold">Palette <span className="text-red-400">Of</span> <span className="text-[#9ADE7B]">Bengal</span>
                     </h3>
                     <p className="w-11/12 text-xs md:text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio tempore iste eaque</p>
                 </div>
