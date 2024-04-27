@@ -4,7 +4,7 @@ const ViewDetails = () => {
     const data = useLoaderData()
     console.log(data);
     return (
-        <div className="py-5 md:py-10 bg-white">
+        <div className="py-5 md:py-10 bg-white text-black">
             <div className="max-w-7xl mx-auto lg:min-h-[calc(100vh-450px)]">
                 <div className="flex flex-col lg:flex-row justify-even items-center gap-5 sm:gap-8 lg:gap-20 px-5">
                     <div className=" p-5 shadow-sm rounded-lg">

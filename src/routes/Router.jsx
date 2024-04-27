@@ -40,7 +40,7 @@ const router = createBrowserRouter([
                 path: '/myArtCraft',
                 element: <PrivateRoute>
                     <MyArtCraft />
-                </PrivateRoute>
+                </PrivateRoute>,
             },
             {
                 path: '/allArtCraft',
@@ -53,7 +53,6 @@ const router = createBrowserRouter([
                     <ViewDetails />
                 </PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/allCraft/${params.id}`)
-
             }
         ]
     }

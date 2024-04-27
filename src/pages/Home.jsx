@@ -7,7 +7,7 @@ import AllArtCraft from "./AllArtCraft";
 const Home = () => {
     const loadedData = useActionData();
     return (
-        <div>
+        <div className="text-black dark:text-black">
             <Banner />
             <AllArtCraft />
         </div>

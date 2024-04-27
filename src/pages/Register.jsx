@@ -27,7 +27,7 @@ const Register = () => {
             setError('Password must have an one Lowercase letter')
             return;
         }
-        createUser(email, password)
+        createUser(email, password, name)
         .then(() => {
             toast.success('Successfully register !!')
             navigate('/')

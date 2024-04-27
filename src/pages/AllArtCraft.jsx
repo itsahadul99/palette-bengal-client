@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 const AllArtCraft = () => {
     const loadedData = useLoaderData()
     return (
-        <div className="py-5 md:py-10 bg-white">
+        <div className="py-5 md:py-10 bg-white text-black">
             <div className="max-w-7xl mx-auto">
                 <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold text-center">All Art & Craft </h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-5 px-5 gap-5 md:gap-10 items-center">
