@@ -5,7 +5,8 @@ import { toast } from "react-toastify";
 
 const Nav = () => {
 
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut, loading } = useContext(AuthContext)
+    
     // console.log(user)
     const links = <>
         <li>
@@ -68,6 +69,11 @@ const Nav = () => {
             .catch(error => {
                 toast.error(`${error.message}`)
             })
+    }
+    if (loading) {
+        return <div className="flex justify-center items-center min-h-screen">
+            <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-violet-400 dark:border-violet-600"></div>
+        </div>
     }
     return (
         <div className="bg-base-50 shadow-md my-1">

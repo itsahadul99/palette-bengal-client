@@ -23,7 +23,7 @@ import auth from "../firebase/firebase.config";
       return createUserWithEmailAndPassword(auth, email, password);
     };
     const logIn = (email, password)=>{
-      setLoading(true)
+      // setLoading(true)
       return signInWithEmailAndPassword(auth, email, password)
     }
     const logOut = () => {
@@ -40,8 +40,8 @@ import auth from "../firebase/firebase.config";
     }
     useEffect(() => {
       const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
         setLoading(false)
+        setUser(currentUser);
       });
       return () => {
         unSubscribe()

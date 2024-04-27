@@ -48,7 +48,7 @@ const AddArtCraft = () => {
             <div className=' lg:w-1/2 mx-auto text-[#1B1A1A] mt-5'>
                 <div className='bg-[#F4F4F4] p-5 md:p-8 space-y-5 rounded-lg shadow-lg'>
                     <div className='text-center '>
-                        <h1 className='text-xl font-bold lg:text-4xl'>Add Art & Craft</h1>
+                        <h1 className='text-xl font-bold lg:text-4xl pb-1'>Add Art & Craft</h1>
                         <p className='w-2/3 mx-auto my-2 font-semibold'>
                             Here you can add your Art & Craft item with the below information..
                         </p>
