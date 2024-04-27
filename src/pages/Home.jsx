@@ -3,10 +3,11 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Banner from "../components/Banner";
 import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import ArtistInStudio from "../components/ArtistInStudio";
+import ArtCraftCategory from "./ArtCraftCategory";
 
 const Home = () => {
     const loadedData = useLoaderData();
-    // console.log(loadedData);
     return (
         <div className="text-black dark:text-black">
             {/* banner section */}
@@ -20,7 +21,6 @@ const Home = () => {
                             loadedData.slice(0, 6).map(singleItem => <div key={singleItem._id} className="space-y-4 rounded-lg p-6 shadow-lg">
                                 <img width={200} height={200} className="h-[275px] w-[350px] rounded-lg object-cover"
                                     src={singleItem.image}
-                                    // src="https://i.ibb.co/KDQXQcr/apc.jpg"
                                     alt={`${singleItem.item_name}`} />
                                 <div className="grid gap-2">
                                     <h1 className="text-lg font-semibold text-center">{singleItem.item_name}</h1>
@@ -98,42 +98,10 @@ const Home = () => {
                     </div>
                 </div>
             </div> */}
-
+            {/* Art & Craft Categories section */}
+            <ArtCraftCategory />
             {/* Artists in the Studio Section */}
-            <div className="bg-[#F4F4F4]">
-                <div className="max-w-7xl mx-auto py-5 md:py-10">
-                <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold text-center py-5 md:py-10"> Artists in the Studio</h1>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-5 md:gap-8">
-                        <div className="flex flex-col justify-center items-center text-center gap-5 p-5">
-                            <div>
-                                <img className="md:w-[350px] md:h-[300px] mx-auto rounded-lg" src="http://artcrafts.wpengine.com/wp-content/uploads/2017/02/proces2.jpg" alt="" />
-                            </div>
-                            <div className="space-y-2">
-                                <h1 className="text-sm md:text-xl font-semibold">Caricature Artist at Work</h1>
-                                <p className="text-xs md:text-sm">A caricature artist is also referred to as a caricaturist. Each artist uses their experience and training to develop their own unique style. Caricature artists are not the same as a cartoon artist.</p>
-                            </div>
-                        </div>
-                        <div className="flex flex-col justify-center items-center text-center gap-5 p-5">
-                            <div>
-                                <img className="md:w-[350px] md:h-[300px] mx-auto rounded-lg" src="http://artcrafts.wpengine.com/wp-content/uploads/2017/02/proces1.jpg" alt="" />
-                            </div>
-                            <div className="space-y-2">
-                                <h1 className="text-sm md:text-xl font-semibold">Creativity Finds Expression</h1>
-                                <p className="text-xs md:text-sm">Painting, coloring, writing, making music, and making crafts are all creative activities. Creative expression helps children articulate their feelings and thoughts. They think critically about their world.</p>
-                            </div>
-                        </div>
-                        <div className="flex flex-col justify-center items-center text-center gap-5 p-5">
-                            <div>
-                                <img className="md:w-[350px] md:h-[300px] mx-auto rounded-lg" src="http://artcrafts.wpengine.com/wp-content/uploads/2017/02/proces4.jpg" alt="" />
-                            </div>
-                            <div className="space-y-2">
-                                <h1 className="text-sm md:text-xl font-semibold">Watercolor makes indelible Impression!</h1>
-                                <p className="text-xs md:text-sm">“Unlike many other mediums, watercolor does some of the work for you it's done well watercolor can create an illusion that the paint arrived magically.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <ArtistInStudio />
         </div>
     );
 };
