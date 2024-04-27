@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const MyArtCraft = () => {
     const { user } = useContext(AuthContext)
@@ -11,6 +12,37 @@ const MyArtCraft = () => {
                 setMyArtCraft(data)
             })
     }, [user])
+    const handleDelete = id => {
+        // console.log('Delete soon', id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/myArtCraft/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                            const remainingItem = myArtCraft.filter(item => item._id !== id)
+                            setMyArtCraft(remainingItem)
+                        }
+                    })
+            }
+        });
+
+    }
     return (
         <div className="py-5 md:py-10 bg-white text-black">
             <div className="max-w-7xl mx-auto">
@@ -34,7 +66,7 @@ const MyArtCraft = () => {
                             </div>
                             <div className="flex justify-center gap-3 lg:gap-10">
                                 <button className="rounded-md border bg-[#9ADE7B] font-bold px-2 md:px-4 py-2  duration-300 hover:bg-gray-200">Update</button>
-                                <button className="rounded-md border bg-red-500 font-bold px-2 md:px-4 py-2  duration-300 hover:bg-gray-200">Delete</button>
+                                <button onClick={() => handleDelete(singleItem._id)} className="rounded-md border bg-red-500 font-bold px-2 md:px-4 py-2  duration-300 hover:bg-gray-200">Delete</button>
                             </div>
                         </div>)
                     }

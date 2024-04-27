@@ -4,12 +4,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBbjh48n5Qu2050nLAc9KIlXP0r6nX0D4w",
-  authDomain: "palette-of-bengal.firebaseapp.com",
-  projectId: "palette-of-bengal",
-  storageBucket: "palette-of-bengal.appspot.com",
-  messagingSenderId: "753841742535",
-  appId: "1:753841742535:web:b33821ac1297391582d4e2"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase
