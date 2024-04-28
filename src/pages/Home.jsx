@@ -16,9 +16,13 @@ const Home = () => {
             <div className="py-5 md:py-10 bg-white text-black">
                 <div className="max-w-7xl mx-auto">
                     <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold text-center"> Art & Craft </h1>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-5 px-5 gap-5 md:gap-10 items-center">
+                    <div 
+                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-5 px-5 gap-5 md:gap-10 items-center">
                         {
-                            loadedData.slice(0, 6).map(singleItem => <div key={singleItem._id} className="space-y-4 rounded-lg p-6 shadow-lg">
+                            loadedData.slice(0, 6).map(singleItem => 
+                            <div 
+                             key={singleItem._id} 
+                             className="space-y-4 rounded-lg p-6 shadow-lg">
                                 <img width={200} height={200} className="h-[275px] w-[350px] rounded-lg object-cover"
                                     src={singleItem.image}
                                     alt={`${singleItem.item_name}`} />

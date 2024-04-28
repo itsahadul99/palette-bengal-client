@@ -19,9 +19,12 @@ const ArtCraftCategory = () => {
                 <div className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-5 md:gap-8 my-5">
                     {
                         data.map(item => <Link key={item._id} to={`/allCategories/${item.sub_categoryname}`} >
-                            <div className="space-y-3 p-5 bg-white rounded-md shadow-md hover:scale-105 cursor-pointer">
-                                <img className="md:w-[300px] md:h-[300px] " src={item.image} alt="" />
-                                <h3 className="text-sm md:text-lg font-bold">{item.sub_categoryname}</h3>
+                            <div>
+                                <div
+                                    className="space-y-3 p-5 bg-white rounded-md shadow-md hover:scale-105 cursor-pointer">
+                                    <img className="md:w-[300px] md:h-[300px] " src={item.image} alt="" />
+                                    <h3 className="text-sm md:text-lg font-bold">{item.sub_categoryname}</h3>
+                                </div>
                             </div>
                         </Link>)
                     }
