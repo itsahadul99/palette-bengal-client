@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 const ArtistInStudio = () => {
     return (
-        <div className="bg-white">
+        <div className="bg-[#F4F4F4]">
                 <div className="max-w-7xl mx-auto py-5 md:py-10">
                 <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold text-center py-5 md:py-10"> Artists in the Studio</h1>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-5 md:gap-8">
