@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const MyArtCraft = () => {
     const { user } = useContext(AuthContext)
+    // console.log(typeof(user.email));
     const [myArtCraft, setMyArtCraft] = useState([]);
     const [displayMyArtCraft, setDisplayMyArtCraft] = useState([]);
     useEffect(() => {

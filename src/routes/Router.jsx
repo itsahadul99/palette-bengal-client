@@ -10,6 +10,7 @@ import MyArtCraft from "../pages/MyArtCraft";
 import AllArtCraft from "../pages/AllArtCraft";
 import ViewDetails from "../pages/ViewDetails";
 import UpdateItem from "../pages/UpdateItem";
+import CategoryWiseCard from "../pages/CategoryWiseCard";
 
 const router = createBrowserRouter([
     {
@@ -59,6 +60,13 @@ const router = createBrowserRouter([
                 path: '/updateItem/:id',
                 element: <PrivateRoute><UpdateItem /></PrivateRoute>,
                 loader:({params}) => fetch(`http://localhost:5000/updateItem/${params.id}`)
+            },
+            {
+                path: '/allCategories/:sub_categoryname',
+                element: <PrivateRoute >
+                    <CategoryWiseCard />
+                </PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/allCategories/${params.sub_categoryname}`)
             }
         ]
     }

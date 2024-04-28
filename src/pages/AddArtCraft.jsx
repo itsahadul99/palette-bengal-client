@@ -77,7 +77,7 @@ const AddArtCraft = () => {
                                 <input type="text" name='price' placeholder="Enter price" className="w-full rounded-md p-2 bg-white font-normal mt-1 text-xs sm:text-sm" />
                             </div>
                             <div className='flex-1'>
-                                <label className="text-sm lg:text-xl">Rating</label>
+                                <label className="text-sm lg:text-xl">Rating:</label>
                                 <input type="text" name='rating' placeholder="Enter ratings ( 1 to 10 )" className="w-full rounded-md p-2 bg-white font-normal mt-1 text-xs sm:text-sm" />
                             </div>
                         </div>
