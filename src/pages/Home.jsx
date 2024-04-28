@@ -1,16 +1,18 @@
 /* eslint-disable no-unused-vars */
-
 import { Link, useLoaderData } from "react-router-dom";
 import Banner from "../components/Banner";
-import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import ArtistInStudio from "../components/ArtistInStudio";
 import ArtCraftCategory from "./ArtCraftCategory";
-import OurArtists from "../components/OurArtists";
+import CreativeModernArtist from "../components/CreativeModernArtist";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
     const loadedData = useLoaderData();
     return (
         <div className="text-black dark:text-black">
+            <Helmet>
+                <title>Palette Bengal || Home</title>
+            </Helmet>
             {/* banner section */}
             <Banner />
             {/* Art & Craft Section */}
@@ -49,7 +51,7 @@ const Home = () => {
             {/* Art & Craft Categories section */}
             <ArtCraftCategory />
             {/* Creative Modern Artists */}
-            <OurArtists />
+            <CreativeModernArtist />
             {/* Artists in the Studio Section */}
             <ArtistInStudio />
         </div>

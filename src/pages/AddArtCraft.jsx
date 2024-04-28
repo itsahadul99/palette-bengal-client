@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const AddArtCraft = () => {
     const navigate = useNavigate();
@@ -45,6 +46,9 @@ const AddArtCraft = () => {
     }
     return (
         <div className='lg:min-h-[calc(100vh-120px)] bg-[#F4F3F0] p-5'>
+            <Helmet>
+                <title>Palette Bengal || Add Art & Craft </title>
+            </Helmet>
             <div className=' lg:w-1/2 mx-auto text-[#1B1A1A] mt-5'>
                 <div className='bg-[#F4F4F4] p-5 md:p-8 space-y-5 rounded-lg shadow-lg'>
                     <div className='text-center '>
@@ -57,11 +61,11 @@ const AddArtCraft = () => {
                         <div className='flex justify-between items-center gap-5'>
                             <div className='flex-1'>
                                 <label className="text-sm lg:text-xl">Item Name:</label>
-                                <input type="text" name='name' placeholder="Item Name" className="w-full rounded-md mt-1 text-xs sm:text-sm p-2 bg-white font-normal" />
+                                <input type="text" name='name' required placeholder="Item Name" className="w-full rounded-md mt-1 text-xs sm:text-sm p-2 bg-white font-normal" />
                             </div>
                             <div className='flex-1'>
                                 <label className="text-sm lg:text-xl">Sub Category Name: </label>
-                                <select name="sub_category" className="w-full rounded-md mt-1 text-xs sm:text-sm p-2 bg-white font-normal">
+                                <select required name="sub_category" className="w-full rounded-md mt-1 text-xs sm:text-sm p-2 bg-white font-normal">
                                     <option>Landscape Painting</option>
                                     <option>Portrait Drawing</option>
                                     <option>Watercolour Painting</option>
@@ -74,7 +78,7 @@ const AddArtCraft = () => {
                         <div className='flex justify-between items-center gap-5'>
                             <div className='flex-1'>
                                 <label className="text-sm lg:text-xl">Price:</label>
-                                <input type="text" name='price' placeholder="Enter price" className="w-full rounded-md p-2 bg-white font-normal mt-1 text-xs sm:text-sm" />
+                                <input required type="text" name='price' placeholder="Enter price" className="w-full rounded-md p-2 bg-white font-normal mt-1 text-xs sm:text-sm" />
                             </div>
                             <div className='flex-1'>
                                 <label className="text-sm lg:text-xl">Rating:</label>
@@ -91,20 +95,20 @@ const AddArtCraft = () => {
                             </div>
                             <div className='flex-1'>
                                 <label className="text-sm lg:text-xl">Image:</label>
-                                <input type="text" name='image' placeholder="Enter image url" className="w-full rounded-md p-2 bg-white font-normal mt-1 text-xs sm:text-sm" />
+                                <input required type="text" name='image' placeholder="Enter image url" className="w-full rounded-md p-2 bg-white font-normal mt-1 text-xs sm:text-sm" />
                             </div>
                         </div>
                         <div className='flex justify-between items-center gap-5'>
                             <div className='flex-1'>
                                 <label className="text-sm lg:text-xl">Stock Status:</label>
-                                <select name="stock_status" className="w-full rounded-md mt-1 text-xs sm:text-sm p-2 bg-white font-normal">
+                                <select required name="stock_status" className="w-full rounded-md mt-1 text-xs sm:text-sm p-2 bg-white font-normal">
                                     <option>In Stock</option>
                                     <option>Made to Order</option>
                                 </select>
                             </div>
                             <div className='flex-1'>
                                 <label className="text-sm lg:text-xl">Processing Time:</label>
-                                <input type="text" name='processing_time' placeholder="Enter processing time (hour)" className="w-full rounded-md p-2 bg-white font-normal mt-1 text-xs sm:text-sm" />
+                                <input required type="text" name='processing_time' placeholder="Enter processing time (hour)" className="w-full rounded-md p-2 bg-white font-normal mt-1 text-xs sm:text-sm" />
                             </div>
                         </div>
                         <div>

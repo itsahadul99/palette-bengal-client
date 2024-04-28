@@ -3,6 +3,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const { createUser, error, setError } = useContext(AuthContext);
@@ -39,6 +40,9 @@ const Register = () => {
     }
     return (
         <div className="py-5 lg:py-14 text-black  bg-[#F4F4F4]">
+            <Helmet>
+                <title>Palette Bengal || Register Page</title>
+            </Helmet>
             <div className="w-full max-w-md p-5 space-y-3 rounded-xl border-2 border-dotted bg-white shadow-lg mx-auto">
                 <h1 className="text-3xl font-bold text-center text-[#9ADE7B]">Register</h1>
                 {/* Input fields and the form started */}

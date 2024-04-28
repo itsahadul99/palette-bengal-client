@@ -1,9 +1,13 @@
 
+import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
 const AllArtCraft = () => {
     const loadedData = useLoaderData()
     return (
         <div className="py-5 md:py-10 bg-[#F4F4F4] text-black">
+            <Helmet>
+                <title>Pallette Bengal || All Art & Craft</title>
+            </Helmet>
             <div className="max-w-7xl mx-auto">
                 <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold text-center">All Art & Craft </h1>
                 <div className="overflow-x-auto my-5">

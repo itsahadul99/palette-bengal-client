@@ -1,7 +1,7 @@
 import { MdOutlineStarPurple500, MdOutlineEmail } from "react-icons/md";
 import { TiSocialGooglePlus, TiSocialFacebook } from "react-icons/ti";
 import { CiTwitter } from "react-icons/ci";
-const OurArtists = () => {
+const CreativeModernArtist = () => {
     return (
         <div className="bg-white py-5 md:py-10">
             <div className="max-w-7xl mx-auto">
@@ -188,4 +188,4 @@ const OurArtists = () => {
     );
 };
 
-export default OurArtists;
+export default CreativeModernArtist;

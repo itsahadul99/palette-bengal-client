@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const MyArtCraft = () => {
     const { user } = useContext(AuthContext)
@@ -57,6 +58,9 @@ const MyArtCraft = () => {
     }
     return (
         <div className="py-5 md:py-10 bg-white text-black">
+            <Helmet>
+                <title>Palette Bengal || My Art & Craft</title>
+            </Helmet>
             <div className="max-w-7xl mx-auto">
                 <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold text-center">My Art & Craft</h1>
                 <div>

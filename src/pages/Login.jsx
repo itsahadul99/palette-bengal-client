@@ -3,6 +3,7 @@ import { FaEye, FaEyeSlash, FaGithub, FaGoogle, } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const { logIn, googleLogIn, githubLogIn, error, setError } = useContext(AuthContext);
@@ -65,6 +66,9 @@ const Login = () => {
 
     return (
         <div className="bg-[#F4F4F4] py-5 lg:py-14 text-black">
+            <Helmet>
+                <title>Palette Bengal || Login Page</title>
+            </Helmet>
             <div className="w-full max-w-md p-8 space-y-3 rounded-xl border-2 border-dotted bg-white shadow-md mx-auto">
                 <h1 className="text-3xl font-bold text-center text-[#9ADE7B]">Login</h1>
                 {/* Input fields and the form started */}
