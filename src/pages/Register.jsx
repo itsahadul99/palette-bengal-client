@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
+import { useTypewriter } from "react-simple-typewriter";
 
 const Register = () => {
     const { createUser, error, setError } = useContext(AuthContext);
@@ -38,13 +39,20 @@ const Register = () => {
             })
 
     }
+    const [text] = useTypewriter({
+        words: ["Register"],
+        loop: true,
+        typeSpeed: 150,
+        delaySpeed: 2000,
+        deleteSpeed: 100,
+    })
     return (
         <div className="py-5 lg:py-14 text-black  bg-[#F4F4F4]">
             <Helmet>
                 <title>Palette Bengal || Register Page</title>
             </Helmet>
             <div className="w-full max-w-md p-5 space-y-3 rounded-xl border-2 border-dotted bg-white shadow-lg mx-auto">
-                <h1 className="text-3xl font-bold text-center text-[#9ADE7B]">Register</h1>
+                <h1 className="text-3xl font-bold text-center text-[#9ADE7B]">{text}</h1>
                 {/* Input fields and the form started */}
                 <form onSubmit={handleRegister} className="space-y-6">
                     <div className="space-y-2 text-sm">

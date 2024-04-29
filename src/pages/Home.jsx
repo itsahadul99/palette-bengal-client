@@ -5,6 +5,7 @@ import ArtistInStudio from "../components/ArtistInStudio";
 import ArtCraftCategory from "./ArtCraftCategory";
 import CreativeModernArtist from "../components/CreativeModernArtist";
 import { Helmet } from "react-helmet-async";
+import UpcomingEvent from "../components/UpcomingEvent";
 
 const Home = () => {
     const loadedData = useLoaderData();
@@ -57,6 +58,8 @@ const Home = () => {
             <CreativeModernArtist />
             {/* Artists in the Studio Section */}
             <ArtistInStudio />
+            {/* Feature Events section*/}
+            <UpcomingEvent />
         </div>
     );
 };
