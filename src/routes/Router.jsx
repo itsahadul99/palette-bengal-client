@@ -21,7 +21,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
-                loader: () => fetch('http://localhost:5000/allCraft')
+                loader: () => fetch('https://palette-of-bengal-server.vercel.app/allCraft')
             },
             {
                 path: '/login',
@@ -47,26 +47,26 @@ const router = createBrowserRouter([
             {
                 path: '/allArtCraft',
                 element: <AllArtCraft />,
-                loader: () => fetch('http://localhost:5000/allCraft')
+                loader: () => fetch('https://palette-of-bengal-server.vercel.app/allCraft')
             },
             {
                 path: '/allCraft/:id',
                 element: <PrivateRoute>
                     <ViewDetails />
                 </PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/allCraft/${params.id}`)
+                loader: ({params}) => fetch(`https://palette-of-bengal-server.vercel.app/allCraft/${params.id}`)
             },
             {
                 path: '/updateItem/:id',
                 element: <PrivateRoute><UpdateItem /></PrivateRoute>,
-                loader:({params}) => fetch(`http://localhost:5000/updateItem/${params.id}`)
+                loader:({params}) => fetch(`https://palette-of-bengal-server.vercel.app/updateItem/${params.id}`)
             },
             {
                 path: '/allCategories/:sub_categoryname',
                 element: <PrivateRoute >
                     <CategoryWiseCard />
                 </PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/allCategories/${params.sub_categoryname}`)
+                loader: ({params}) => fetch(`https://palette-of-bengal-server.vercel.app/allCategories/${params.sub_categoryname}`)
             }
         ]
     }

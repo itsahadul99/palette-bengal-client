@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const Nav = () => {
 
     const { user, logOut, loading } = useContext(AuthContext)
-    
+
     // console.log(user)
     const links = <>
         <li>
@@ -45,22 +45,20 @@ const Nav = () => {
 
     </>
     const [theme, setTheme] = useState('light')
-    const handleToggle = e => {
-        if (e.target.checked) {
-            setTheme('dark');
-        } else {
-            setTheme('light');
-        }
-    }
     // set theme state in localStorage on mount & also update localStorage on state change
     useEffect(() => {
         localStorage.setItem('theme', theme)
         const localTheme = localStorage.getItem('theme')
-
-        // add custom data-theme attribute
         document.querySelector('html').setAttribute('data-theme', localTheme)
     }, [theme]);
 
+    const handleToggle = e => {
+        if (e.target.checked) {
+            setTheme('dark');
+        } else {
+            setTheme('light')
+        }
+    }
     const handleLogOut = () => {
         logOut()
             .then(() => {
@@ -72,7 +70,7 @@ const Nav = () => {
     }
     if (loading) {
         return <div className="flex justify-center items-center min-h-screen">
-            <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-violet-400 dark:border-violet-600"></div>
+            <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-red-400 dark:border-red-600"></div>
         </div>
     }
     return (
@@ -109,11 +107,11 @@ const Nav = () => {
                                         <li>Username: {user?.displayName}</li>
                                         <li><button onClick={handleLogOut}>Logout</button></li>
                                     </ul>
-                                </div> 
-                                : <div className="flex gap-2 items-center">
-                                    <Link to ="/login"><button className="btn btn-outline btn-xs lg:btn-sm btn-success">LogIn </button></Link>
-                                    <Link to ="/register"><button className="btn btn-outline btn-xs lg:btn-sm btn-secondary">Register</button></Link>
                                 </div>
+                                    : <div className="flex gap-2 items-center">
+                                        <Link to="/login"><button className="btn btn-outline btn-xs lg:btn-sm btn-success">LogIn </button></Link>
+                                        <Link to="/register"><button className="btn btn-outline btn-xs lg:btn-sm btn-secondary">Register</button></Link>
+                                    </div>
                             }
                         </div>
                         <div>

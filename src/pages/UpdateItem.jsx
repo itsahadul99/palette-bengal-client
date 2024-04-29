@@ -24,7 +24,7 @@ const UpdateItem = () => {
         const userName = user.displayName;
         const updateItem = { item_name, sub_category, image, price, rating, customization, description, stockStatus, processingTime, userEmail, userName }
         // console.log(craftItem);
-        fetch(`http://localhost:5000/updateItem/${loadedItem._id}`, {
+        fetch(`https://palette-of-bengal-server.vercel.app/updateItem/${loadedItem._id}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'

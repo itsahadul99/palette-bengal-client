@@ -24,7 +24,7 @@ const AddArtCraft = () => {
         const userName = user.displayName;
         const craftItem = { item_name, sub_category, image, price, rating, customization, description, stockStatus, processingTime, userEmail, userName }
         // console.log(craftItem);
-        fetch('http://localhost:5000/addCraft', {
+        fetch('https://palette-of-bengal-server.vercel.app/addCraft', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

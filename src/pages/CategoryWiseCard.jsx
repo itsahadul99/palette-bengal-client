@@ -5,7 +5,7 @@ const CategoryWiseCard = () => {
     const { sub_categoryname } = useParams();
     const [loadedData, setLoadedData] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/allCraft`)
+        fetch(`https://palette-of-bengal-server.vercel.app/allCraft`)
             .then(res => res.json())
             .then(data => {
                 setLoadedData(data)

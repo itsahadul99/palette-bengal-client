@@ -1,7 +1,7 @@
 # Palette Bengal
-
+- B9 A10 Type-02 Requirements
 # Live Link: 
-- 
+- [Palette-Bengal](https://palette-of-bengal.web.app/)
 
 # Facilities of the Websites: 
 - Diverse Login Options: Palette of Bangel supports multiple login methods including email/password, Google, and GitHub, ensuring a seamless and accessible user experience for everyone.
@@ -16,10 +16,12 @@
 # Resources & Technologies Used:
 
 - [React Router Dom](https://reactrouter.com/en/main)
+- [React-Typewriter](https://react-simple-typewriter.vercel.app/?path=/story/introduction--page)
 - [React-Toastify](https://www.npmjs.com/package/react-toastify)
 - [React-SweetAlert](https://sweetalert2.github.io/recipe-gallery/sweetalert2-react.html)
 - [React-Icons](https://react-icons.github.io/react-icons/)
 - [Daisy UI](https://daisyui.com/)
+- [Mamma-UI]()
 - [TailwindCSS](https://tailwindcss.com/)
 - [AOS-Animation](https://michalsnik.github.io/aos/)
 - [Swiper-Slider](https://swiperjs.com/)

@@ -3,14 +3,15 @@ import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useTypewriter } from "react-simple-typewriter";
 
 const MyArtCraft = () => {
     const { user } = useContext(AuthContext)
-    // console.log(typeof(user.email));
+    
     const [myArtCraft, setMyArtCraft] = useState([]);
     const [displayMyArtCraft, setDisplayMyArtCraft] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/myArtCraft/${user?.email}`)
+        fetch(`https://palette-of-bengal-server.vercel.app/myArtCraft/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setDisplayMyArtCraft(data)
@@ -18,7 +19,6 @@ const MyArtCraft = () => {
             })
     }, [user])
     const handleDelete = id => {
-        // console.log('Delete soon', id);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -29,7 +29,7 @@ const MyArtCraft = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/myArtCraft/${id}`, {
+                fetch(`https://palette-of-bengal-server.vercel.app/myArtCraft/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -37,7 +37,7 @@ const MyArtCraft = () => {
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your file has been deleted.",
+                                text: "Your Craft Item has been deleted.",
                                 icon: "success"
                             });
                             const remainingItem = displayMyArtCraft.filter(item => item._id !== id)
@@ -56,17 +56,20 @@ const MyArtCraft = () => {
         const customization = myArtCraft.filter(item => item.customization !== "Yes")
         setDisplayMyArtCraft(customization)
     }
+    const [text] = useTypewriter({
+        words: ['My Art & Craft'],
+    })
     return (
         <div className="py-5 md:py-10 bg-white text-black">
             <Helmet>
                 <title>Palette Bengal || My Art & Craft</title>
             </Helmet>
             <div className="max-w-7xl mx-auto">
-                <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold text-center">My Art & Craft</h1>
+                <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold text-center">{text}</h1>
                 <div>
                     <div className="flex justify-end my-5">
                         <div className="dropdown dropdown-left">
-                            <div tabIndex={0} role="button" className="btn m-1">Filter</div>
+                            <div tabIndex={0} role="button" className="rounded-md border bg-[#9ADE7B] font-bold px-2 md:px-4 py-2  duration-300 hover:bg-gray-200">Filter</div>
                             <ul tabIndex={0} className="dropdown-content z-20 menu p-2 shadow bg-base-100 rounded-box w-52">
                                 <li><a onClick={handleCustomizationYes}>Customization- Yes</a></li>
                                 <li><a onClick={handleCustomizationNo}>Customization- No</a></li>
@@ -75,7 +78,10 @@ const MyArtCraft = () => {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-5 px-5 gap-5 md:gap-10 items-center">
                         {
-                            displayMyArtCraft.map(singleItem => <div key={singleItem._id} className="space-y-4 rounded-lg p-6 shadow-lg">
+                            displayMyArtCraft.map(singleItem => <div
+                            data-aos="fade-up"
+                            data-aos-duration='1500'
+                            key={singleItem._id} className="space-y-4 rounded-lg p-6 shadow-lg">
                                 <img width={200} height={200} className="h-[275px] w-[350px] rounded-lg object-cover"
                                     src={singleItem.image}
                                     alt={`${singleItem.item_name}`} />

@@ -1,15 +1,20 @@
 
 import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
+import { useTypewriter } from "react-simple-typewriter";
 const AllArtCraft = () => {
     const loadedData = useLoaderData()
+    const [text] = useTypewriter({
+        words: ["All Art & Craft"],
+        typeSpeed: 60,
+    })
     return (
         <div className="py-5 md:py-10 bg-[#F4F4F4] text-black">
             <Helmet>
                 <title>Pallette Bengal || All Art & Craft</title>
             </Helmet>
             <div className="max-w-7xl mx-auto">
-                <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold text-center">All Art & Craft </h1>
+                <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold text-center">{text} </h1>
                 <div className="overflow-x-auto my-5">
                     <table className="table space-y-2 md:space-y-5 bg-white">
                         {/* head */}
