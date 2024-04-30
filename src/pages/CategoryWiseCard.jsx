@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-
 const CategoryWiseCard = () => {
     const { sub_categoryname } = useParams();
     const [loadedData, setLoadedData] = useState([])
@@ -12,7 +11,6 @@ const CategoryWiseCard = () => {
             })
     }, [sub_categoryname])
     const filterData = loadedData.filter(item => item.sub_category === sub_categoryname)
-    
     return (
         <div className="py-5 md:py-10 bg-[#F4F4F4] text-black">
             <div className="max-w-7xl mx-auto">

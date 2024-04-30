@@ -1,6 +1,6 @@
 const UpcomingEvent = () => {
     return (
-        <div className="my-5 lg:my-10">
+        <div className="py-5 lg:py-10 bg-white">
             <div className="max-w-7xl mx-auto">
                 <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold text-center"> Take a Part Inside the Arts </h1>
                 <p className="text-sm md:text-lg font-semibold mt-5 text-center my-5 opacity-80 italic">See upcoming happenings nearby...</p>

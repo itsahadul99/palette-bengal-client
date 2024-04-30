@@ -17,7 +17,7 @@ const Home = () => {
             {/* banner section */}
             <Banner />
             {/* Art & Craft Section */}
-            <div className="py-5 md:py-10 bg-white text-black min-h-screen">
+            <div className="py-5 md:py-10 bg-white  text-black min-h-screen">
                 <div className="max-w-7xl mx-auto">
                     <h1 className="text-xl md:text-2xl lg:text-4xl font-semibold text-center"> Art & Craft </h1>
                     <div

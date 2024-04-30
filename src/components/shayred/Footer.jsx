@@ -7,7 +7,7 @@ const Footer = () => {
                 <div className="lg:w-1/3 mx-auto">
                     <h3 className="text-sm md:text-2xl lg:text-3xl font-bold">Palette <span className="text-red-400">Of</span> <span className="text-[#9ADE7B]">Bengal</span>
                     </h3>
-                    <p className="w-11/12 text-xs md:text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio tempore iste eaque</p>
+                    <p className="w-11/12 text-xs md:text-sm mt-2">A bengali art and craft store. We provides the best product and services. We are always support our clients</p>
                 </div>
                 <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
                     <div className="space-y-3">

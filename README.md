@@ -17,11 +17,12 @@
 
 - [React Router Dom](https://reactrouter.com/en/main)
 - [React-Typewriter](https://react-simple-typewriter.vercel.app/?path=/story/introduction--page)
+- [React-Awesome-Reveal](https://react-awesome-reveal.morello.dev/)
 - [React-Toastify](https://www.npmjs.com/package/react-toastify)
 - [React-SweetAlert](https://sweetalert2.github.io/recipe-gallery/sweetalert2-react.html)
 - [React-Icons](https://react-icons.github.io/react-icons/)
 - [Daisy UI](https://daisyui.com/)
-- [Mamma-UI]()
+- [Mamma-UI](https://mambaui.com)
 - [TailwindCSS](https://tailwindcss.com/)
 - [AOS-Animation](https://michalsnik.github.io/aos/)
 - [Swiper-Slider](https://swiperjs.com/)
